@@ -29,6 +29,8 @@ neuralfield2D.m  computes eigenvalues per wavenumber of the neural field model (
 
 CollectTuning.m  computes tuning curves for each network.  Need to run Sim_Ori_gabor_L1.m or Sim_Ori_gabor_L1_Pts.m first and set the range of orientations to be 'testp.theta0=0.02:.02:1; '.    
 
+cov_tuning.m  computes correlation as a function of preferred orientations of the pair of neurons (Fig 1D)  
+
 RF2D3layer.m is the main simulation function. It contains default parameter values and uses the mex file EIF1DRFfastslowSyn.c for integration. 
 
 demo.m is a demonstration code for two-layer network simulations. 
