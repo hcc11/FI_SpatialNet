@@ -1,12 +1,4 @@
 function RF2D3layer(varargin)
-% run U & A, with same s1;
-%  for stim_type='OriMap_gabor_Tseg'
-% save spike counts only
-% weights in int32
-% rand number generator is 'combRecursive'
-% rng(Wseed1,'combRecursive')
-% connectivity depends on tuning similarity
-
 % RF2D3layer(option, ParamChange)
 
 % param is a struc w/ fields: Ne, Ni, Nx, Jx, Jr, Kx, Kr,
@@ -27,6 +19,7 @@ function RF2D3layer(varargin)
 %       Wrr[j*(Kee+Kie)+Kee] to Wrr[(j+1)*{Kee+Kie)-1] are connections from j to I pop.
 %   Wrf is a vector of connections from the feedforward layer to the recurrent layer, sorted by the index of the presynaptic cell.
 %       The block of postsynaptic cell indices for each presynaptic cell is sorted as excitatory followed by inhibitory cells.
+%       (weights in int32) 
 
 %   conversion of neuron ID (exc) to (x,y) coordinate in [1, Ne1]x[1, Ne1]:
         % exc. ID [1, Ne], x=ceil(I/Ne1); y=(mod((I-1),Ne1)+1); ID=(x-1)*Ne1+y
@@ -49,6 +42,8 @@ function RF2D3layer(varargin)
 % if options.CompCorr is 1, ParamChange needs to have field 'Nc',e.g. Nc=[500 500];
 %      # of neurons to sample from Layer2 & Layer3.
 % if options.fixW is 1, ParamChange needs to have field 'Wseed1' & 'Wseed2'.
+
+% for stim_type='OriMap_gabor_Tseg', save spike counts only
 
 nVarargs = length(varargin);
 switch nVarargs
