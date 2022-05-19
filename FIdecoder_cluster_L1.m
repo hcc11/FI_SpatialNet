@@ -97,7 +97,7 @@ ns=Nstim*Nfile;
 %%%%%%%%%%%% select neurons with FR > 1 Hz %%%%%%%%%%%%%%
 Tw=0.2;
 FR_th=1;
-Fm = (mean(data.X,data.th_id==1)+mean(data.X,data.th_id==2))/2; % average spike count per neuron
+Fm = (mean(data.X(:,data.th_id==1),2)+mean(data.X(:,data.th_id==2),2))/2; % average spike count per neuron
 ind_FR=find(Fm>FR_th*Tw);
 sprintf('number of neurons w/ rate larger than %d Hz: ',FR_th, nnz(ind_FR)) 
 %%%%%%%%% all neurons %%%%%%%%%%%%%%%%%%
